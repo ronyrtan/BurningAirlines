@@ -13,12 +13,13 @@
 
   <div class="field">
     <%= f.label :flight_id %><br>
-    <%= f.select :flight_id, Flight.pluck(:name, :id),
+    <%= f.select :flight_id, Flight.pluck(:flight_number, :id),
     {:prompt => 'Select Flight'} %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.select :user_id, User.pluck(:name, :id),
+    {:prompt => 'Select Flight'} %>
   </div>
   <div class="actions">
     <%= f.submit %>
