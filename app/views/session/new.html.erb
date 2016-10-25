@@ -1,0 +1,19 @@
+
+<h2 class='signUpFormTitle'>Sign in to Burning Airlines</h2>
+
+<% if flash[:message].present? %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
+<%= form_tag login_path do %>
+<p>
+  <%= email_field_tag :email, nil, :placeholder => 'Email', :class => "signUpForm" %>
+</p>
+
+<p>
+  <%= password_field_tag :password, nil, :placeholder => 'Password', :class => "signUpForm" %>
+</p>
+
+<%= submit_tag 'Log in', :class => 'signUpFormButton' %>
+
+<% end %>

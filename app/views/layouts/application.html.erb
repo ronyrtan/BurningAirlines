@@ -8,6 +8,15 @@
 </head>
 <body>
 
+  <nav>
+    <%= link_to "Home", root_path, :class => 'nav' %>
+    <% if @current_user.present? %>
+    <%= link_to "Logout #{ @current_user.name }", login_path, :method => 'delete', :class => 'nav' %>
+    <% else %>
+    <%= link_to 'Sign in', login_path, :class => "" %>
+    <% end %>
+  </nav>
+
 <%= yield %>
 
 </body>
