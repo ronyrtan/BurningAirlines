@@ -5,6 +5,7 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     @flights = Flight.all
+    @flights = @flights.order('date DESC')
   end
 
   # GET /flights/1
@@ -28,7 +29,7 @@ class FlightsController < ApplicationController
 
     respond_to do |format|
       if @flight.save
-        format.html { redirect_to @flight, notice: 'Flight was successfully created.' }
+        format.html { redirect_to flights_path, notice: 'Flight was successfully created.' }
         format.json { render :show, status: :created, location: @flight }
       else
         format.html { render :new }
@@ -58,6 +59,15 @@ class FlightsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to flights_url, notice: 'Flight was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def search_results
+    @flights = Flight.all
+    if params[:search_origin] && params[:search_destination]
+      @flights = Flight.search(params[:search_origin], params[:search_destination]).order("created_at DESC")
+    else
+      @flights = Flight.all.order("created_at DESC")
     end
   end
 

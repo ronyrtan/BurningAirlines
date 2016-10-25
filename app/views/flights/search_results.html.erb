@@ -1,6 +1,8 @@
-<p id="notice"><%= notice %></p>
+<h1>Results coming soon</h1>
 
-<h1>Listing Flights</h1>
+<% if @flights.blank? %>
+  <h4>There are no flights with origins containing the term <%= params[:search_origin] %> or destinations with the term <%= params[:search_destination] %>.</h4>
+<% end %>
 
 <table>
   <thead>
@@ -33,8 +35,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-<% if @current_user.present? && @current_user.admin? %>
-<%= link_to 'New Flight', new_flight_path %>
-<% end %>

@@ -1,0 +1,5 @@
+<%= form_tag(search_results_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search_origin, params[:search_origin], placeholder: "Search Origin" %>
+    <%= text_field_tag :search_destination, params[:search_destination], placeholder: "Search Destination" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>

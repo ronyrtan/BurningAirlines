@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_for_user, :only => [:edit, :update]
+  before_action :check_for_admin, :only => [:index]
 
   # GET /users
   # GET /users.json
@@ -10,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = @current_user
   end
 
   # GET /users/new
@@ -19,6 +22,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = @current_user
   end
 
   # POST /users
