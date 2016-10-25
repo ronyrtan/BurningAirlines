@@ -4,7 +4,11 @@ class AirplanesController < ApplicationController
   # GET /airplanes
   # GET /airplanes.json
   def index
+    if @current_user.present? && @current_user.admin?
     @airplanes = Airplane.all
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /airplanes/1
@@ -19,6 +23,11 @@ class AirplanesController < ApplicationController
 
   # GET /airplanes/1/edit
   def edit
+    if @current_user.present? && @current_user.admin?
+    @airplane = Airplane.find params[:id]
+    else
+      redirect_to root_path
+    end
   end
 
   # POST /airplanes

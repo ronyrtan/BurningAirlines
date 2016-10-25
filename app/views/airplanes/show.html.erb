@@ -14,8 +14,11 @@
   <strong>Columns:</strong>
   <%= @airplane.columns %>
 </p>
-
+<% if @current_user.present? && @current_user.admin? %>
 <%= link_to 'Edit', edit_airplane_path(@airplane) %> |
+<% end %>
 <%= link_to 'Back', airplanes_path %>
 
 <p>TODO: Seating Diagram goes here.</p>
+
+<div id="main"></div>

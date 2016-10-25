@@ -5,7 +5,7 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     @flights = Flight.all
-    @flights = @flights.order('date DESC')
+    @flights = @flights.order('date')
   end
 
   # GET /flights/1
