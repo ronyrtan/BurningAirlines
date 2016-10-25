@@ -13,7 +13,8 @@
 
   <div class="field">
     <%= f.label :flight_id %><br>
-    <%= f.number_field :flight_id %>
+    <%= f.select :flight_id, Flight.pluck(:name, :id),
+    {:prompt => 'Select Flight'} %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br>

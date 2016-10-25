@@ -6,9 +6,11 @@
   <thead>
     <tr>
       <th>Airplane</th>
+      <th>Flight Number</th>
       <th>Origin</th>
       <th>Destination</th>
       <th>Date</th>
+      <th>Seats</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +18,12 @@
   <tbody>
     <% @flights.each do |flight| %>
       <tr>
-        <td><%= flight.airplane_id %></td>
+        <td><%= flight.airplane.name %></td>
+        <td><%= flight.flight_number %></td>
         <td><%= flight.origin %></td>
         <td><%= flight.destination %></td>
         <td><%= flight.date %></td>
+        <td><%= Airplane.seat_count(flight.airplane) %></td>
         <td><%= link_to 'Show', flight %></td>
         <td><%= link_to 'Edit', edit_flight_path(flight) %></td>
         <td><%= link_to 'Destroy', flight, method: :delete, data: { confirm: 'Are you sure?' } %></td>

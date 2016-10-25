@@ -2,8 +2,8 @@ class CreateAirplanes < ActiveRecord::Migration
   def change
     create_table :airplanes do |t|
       t.string :name
-      t.string :row
-      t.integer :column
+      t.string :rows
+      t.integer :columns
 
       t.timestamps null: false
     end
