@@ -3,25 +3,27 @@ var app = app || {};
 app.SearchInputView = Backbone.View.extend({
   el: '#searchInput',
   events: {
-    'submit': 'preventDefault'
-    // 'click button': 'createSearch'
+    'submit': 'createSearch'
     // 'keypress textarea': 'checkForEnter'
   },
-  // createSearch: function () {
-  //   var userSearchOrigin = this.$el.find('.search_origin').val();
-  //   var userSearchDestination = this.$el.find('.search_destination').val();
-  //   var flight = new app.Flight({origin: userSearchOrigin}, {destination: userSearchDestination});
-  //   console.log(userSearchOrigin,userSearchDestination);
-  //   // flight.save();
-  //   // this.$el.find('textarea').val('').focus();
-  //   // TODO: Fix this Section
-  // },
-  preventDefault: function(e){
+  createSearch: function(e){
     e.preventDefault();
     var userSearchOrigin = this.$el.find('#search_origin ').val();
     var userSearchDestination = this.$el.find('#search_destination').val();
-    var flight = new app.Flight({origin: userSearchOrigin}, {destination: userSearchDestination});
-    console.log(userSearchOrigin,userSearchDestination);
+
+    //var flight = new app.Flight({origin: userSearchOrigin}, {destination: userSearchDestination});
+    //console.log(userSearchOrigin,userSearchDestination);
+    var searchResults = app.flights.where({
+        origin: userSearchOrigin,
+        destination: userSearchDestination
+      });
+
+    // console.log(searchResults.length);
+
+    var matchedFlights = new app.SearchResultView({collection: searchResults});
+    matchedFlights.render();
+
+    // searchResults.render()
   },
   // checkForEnter: function(event) {
   //   if (event.which === 13) {

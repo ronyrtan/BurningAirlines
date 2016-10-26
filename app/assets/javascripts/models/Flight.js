@@ -7,6 +7,5 @@ app.Flight = Backbone.Model.extend({
     origin: '',
     destination: '',
     date: '',
-    flight_number: ''
   }
 })
