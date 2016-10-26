@@ -3,7 +3,8 @@ var app = app || {};
 app.FlightView = Backbone.View.extend({
   el: '#main',
   events: {
-    'click .seat': 'chosenSeat'
+    'click .seat': 'chosenSeat',
+    'click .seatButton': 'reserveUserSeat'
   },
   chosenSeat: function(e) {
     // if($('.reservedSeat').text() === currentUserName) {
@@ -41,6 +42,15 @@ app.FlightView = Backbone.View.extend({
     console.log(y,x);
 
   },
+
+  reserveUserSeat: function() {
+    console.log('this seat has been reserved');
+    // get the seat number
+    // the user id currentUserID
+    // get flight ID
+    // minus that one seat from total seats
+  },
+
   render: function () {
     var flightTemplate = $('#flightView').html();
     var flightMaker = _.template(flightTemplate);
