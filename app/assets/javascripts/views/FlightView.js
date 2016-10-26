@@ -6,12 +6,15 @@ app.FlightView = Backbone.View.extend({
     'click .seat': 'chosenSeat'
   },
   chosenSeat: function(e) {
-    if($(e.currentTarget).text() === 'X') { return }
-    console.log($(e.currentTarget).data("y"), $(e.currentTarget).data("x"));
+    if($(e.currentTarget).text() === 'X') {
+      $(e.currentTarget).text('');
+      console.log($(e.currentTarget).data("y"), $(e.currentTarget).data("x"), 'is free');
+    } else {
+    console.log($(e.currentTarget).data("y"), $(e.currentTarget).data("x"), 'is now reserved');
     $(e.currentTarget).text('X');
     // var x = $(e.currentTarget).data("y");
     // var y = $(e.currentTarget).data("x");
-
+    }
   },
   render: function () {
     var flightTemplate = $('#flightView').html();
