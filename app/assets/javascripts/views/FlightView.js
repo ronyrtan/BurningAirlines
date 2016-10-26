@@ -6,13 +6,12 @@ app.FlightView = Backbone.View.extend({
     'click .seat': 'chosenSeat'
   },
   chosenSeat: function(e) {
-    // var data_x = $('.seat').attr('data-x');
-    // var data_x = e
-
+    if($(e.currentTarget).text() === 'X') { return }
     console.log($(e.currentTarget).data("y"), $(e.currentTarget).data("x"));
-    // var x = this.$('.seat').text('x');
-    // var y = $('.seat').text();
-    // console.log(x);
+    $(e.currentTarget).text('X');
+    // var x = $(e.currentTarget).data("y");
+    // var y = $(e.currentTarget).data("x");
+
   },
   render: function () {
     var flightTemplate = $('#flightView').html();

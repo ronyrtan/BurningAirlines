@@ -47,6 +47,9 @@ div .seat {
   display: inline-block;
   position: relative;
   margin: 2px;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: top;
 }
 
 .seatingMap {
