@@ -62,6 +62,9 @@ class FlightsController < ApplicationController
     end
   end
 
+  def search
+  end
+
   def search_results
     @flights = Flight.all
     if params[:search_origin] && params[:search_destination]

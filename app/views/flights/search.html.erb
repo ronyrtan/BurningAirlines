@@ -1,5 +1,21 @@
-<%= form_tag(search_results_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search_origin, params[:search_origin], placeholder: "Search Origin" %>
-    <%= text_field_tag :search_destination, params[:search_destination], placeholder: "Search Destination" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
+
+<div id="main">
+
+
+</div>
+
+<script type="text/x-template" id="appView">
+  <h1>Search</h1>
+
+  <div id="searchInput"></div>
+
+  <ul id="searchResults"></ul>
+</script>
+
+<script type="text/x-template" id="searchInputView">
+  <%= form_tag(search_results_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search_origin, params[:search_origin], placeholder: "Search Origin" %>
+      <%= text_field_tag :search_destination, params[:search_destination], placeholder: "Search Destination" %>
+      <%= submit_tag "Search", :name => nil %>
+  <% end %>
+</script>
