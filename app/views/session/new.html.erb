@@ -1,5 +1,5 @@
 
-<h2 class='signUpFormTitle'>Sign in to Burning Airlines</h2>
+<h2 class='signInFormTitle'>Sign in to Burning Airlines</h2>
 
 <% if flash[:message].present? %>
   <p><%= flash[:message] %></p>
@@ -7,13 +7,13 @@
 
 <%= form_tag login_path do %>
 <p>
-  <%= email_field_tag :email, nil, :placeholder => 'Email', :class => "signUpForm" %>
+  <%= email_field_tag :email, nil, :placeholder => 'Email', :class => "signInForm" %>
 </p>
 
 <p>
-  <%= password_field_tag :password, nil, :placeholder => 'Password', :class => "signUpForm" %>
+  <%= password_field_tag :password, nil, :placeholder => 'Password', :class => "signInForm" %>
 </p>
 
-<%= submit_tag 'Log in', :class => 'signUpFormButton' %>
+<%= submit_tag 'Log in', :class => 'signInFormButton' %>
 
 <% end %>

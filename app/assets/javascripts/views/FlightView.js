@@ -6,32 +6,46 @@ app.FlightView = Backbone.View.extend({
     'click .seat': 'chosenSeat'
   },
   chosenSeat: function(e) {
+    // if($('.reservedSeat').text() === currentUserName) {
+      $('.reservedSeat').remove();
+    // }
     var seats = $('.seat').length;
     var seatCount = 0;
+    var x = '';
+    var y = '';
 
-    if($(e.currentTarget).text() === 'X') {
+    console.log(currentUserName);
+    if($(e.currentTarget).text() === currentUserName) {
       $(e.currentTarget).text('avail');
-      console.log($(e.currentTarget).data("y"), $(e.currentTarget).data("x"), 'is free');
+      $(e.currentTarget).removeClass('clickedSeat');
+
       // console.log($(this.app.users.models));
-      console.log(seats);
     } else {
-      console.log($(e.currentTarget).data("y"), $(e.currentTarget).data("x"), 'is now reserved');
-      $(e.currentTarget).text('X');
-      // var x = $(e.currentTarget).data("y");
-      // var y = $(e.currentTarget).data("x");
-      console.log(seats);
+
+      x = $(e.currentTarget).data("y");
+      y = $(e.currentTarget).data("x");
+      $(e.currentTarget).text(currentUserName);
+      $(e.currentTarget).addClass('clickedSeat');
+
     }
     _($('.seat')).each(function(s) {
       if (s.innerHTML === 'avail'){
         seatCount++
       }
     });
+    $('.selectSeat').show();
+    var $p = $('<p>').text(y+x);
+    $p.addClass('reservedSeat');
+    $p.prependTo('.selectSeat');
     console.log(seatCount);
+    console.log(y,x);
+
   },
   render: function () {
     var flightTemplate = $('#flightView').html();
     var flightMaker = _.template(flightTemplate);
     this.$el.html( flightMaker(this.model.toJSON()) );
+    // console.log(this.model.toJSON());
 
     var plane = app.airplanes.findWhere({id: this.model.get('airplane_id')});
     var rows = parseInt(plane.get('rows'));

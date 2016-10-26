@@ -9,6 +9,7 @@ nav {
   height: 50px;
   margin: 0 auto;
   background-color: #e0001b;
+  /*box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);*/
 }
 
 .navbar {
@@ -33,7 +34,11 @@ nav {
   float: right;
 }
 
+
+
 /*////////container////////*/
+
+
 
 .container {
   width: 960px;
@@ -43,28 +48,18 @@ nav {
   padding-top: 10px;
 }
 
-div .seat {
-  border: 1px solid black;
-  width: 50px;
-  height: 50px;
-  display: inline-block;
-  position: relative;
-  margin: 2px;
-  line-height: 50px;
-  text-align: center;
-  vertical-align: top;
-}
 
-.seatingMap {
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: center;
-}
+
+/*/// SEARCH FLIGHT ///*/
+
+
 
 .search {
   border: 1px solid #e0001b;
   padding: 10px;
   border-radius: 3px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+
 }
 
 .search_button {
@@ -81,4 +76,179 @@ div .seat {
 .search_button:hover {
   background-color: #e0001b;
   color: white;
+}
+
+
+
+/*/// TABLE ///*/
+
+
+
+#searchResults table {
+  margin-top: 5px;
+}
+
+#searchResults tr {
+  border: 1px solid #e0001b;
+  margin-top: 10px;
+  display: block;
+  padding: 5px;
+}
+
+#searchResults td {
+  margin: 5px;
+  /*border: 1px solid red;*/
+  display: inline-block;
+  /*width: 100px;*/
+}
+
+.flight_number {
+  font-weight: 600;
+  color: red;
+}
+
+.flight_number:hover {
+  cursor: pointer;
+}
+
+
+
+/*/// SEARCH FORM ///*/
+
+
+
+#searchOrigin, #searchDestination {
+  border: 1px solid red;
+  height: 30px;
+  font-size: 16px;
+}
+
+.search_flight {
+  border: 1px solid red;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 0 10px;
+  background-color: white;
+  color: red;
+  transition: all .3s ease;
+}
+
+.search_flight:hover {
+  color: white;
+  background: red;s
+}
+
+
+
+/*/// SEATING MAP ///*/
+
+
+
+div .seat {
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  position: relative;
+  margin: 2px;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: top;
+  border-radius: 3px;
+  transition: all .4s ease;
+}
+
+div .seat:hover {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+  color: white;
+  background-color: #e0001b;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+div .clickedSeat {
+  background-color: black;
+  color: white;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+}
+
+.seatingMap {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: top;
+}
+
+
+
+/*/// SELECT SEAT ///*/
+
+
+
+.selectSeat {
+  width: 200px;
+  border: 1px solid red;
+  padding: 5px;
+  border-radius: 3px;
+  display: none;
+  position: absolute;
+}
+
+.reservedSeat {
+  display: inline-block;
+  padding-left: 35px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.seatButton {
+  /*display: none;*/
+  display: inline-block;
+  border: 1px solid #e0001b;
+  height: 30px;
+  width: 100px;
+  border-radius: 3px;
+  font-size: 16px;
+  background-color: white;
+  color: #e0001b;
+  transition: all .3s ease;
+  margin-left: 30px;
+  float: right;
+}
+
+.seatButton:hover {
+  background-color: #e0001b;
+  color: white;
+}
+
+
+/*/// SIGN IN FORM ///*/
+
+.signInForm, .signUpForm {
+  border-radius: 3px;
+  border: 1px solid #b6a2a2;
+  height: 25px;
+  font-size: 15px;
+  padding: 5px 10px;
+  margin: 10px 0;
+}
+
+.signInFormButton, .signUpFormButton {
+  border-radius: 3px;
+  border: 1px solid #e0001b;
+  height: 35px;
+  font-size: 15px;
+  padding: 5px;
+  margin: 10px 0;
+  background-color: white;
+  color: #e0001b;
+  width: 182px;
+  transition: all .3s ease;
+}
+
+.signInFormButton:hover, .signUpFormButton:hover{
+  color: white;
+  background: #e0001b;
 }

@@ -15,11 +15,13 @@
         <% if @current_user.present? %>
           <%= link_to "Profile", user_path(@current_user) %>
           <%= link_to "Search", search_path %>
+          <%= link_to "All Flights", flights_path %>
       </div>
       <div class="navright">
           <%= link_to "Logout #{ @current_user.name }", login_path, :method => 'delete' %>
         <% else %>
           <%= link_to 'Sign in', login_path %>
+          <%= link_to 'Sign up', new_user_path %>
       </div>
         <% end %>
     </div>

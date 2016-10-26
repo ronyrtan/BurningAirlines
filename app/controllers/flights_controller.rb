@@ -28,6 +28,7 @@ class FlightsController < ApplicationController
     @flight = Flight.new(flight_params)
 
     respond_to do |format|
+      @flight.seats = Airplane.seat_count(@flight.airplane)
       if @flight.save
         format.html { redirect_to flights_path, notice: 'Flight was successfully created.' }
         format.json { render :show, status: :created, location: @flight }
@@ -41,6 +42,7 @@ class FlightsController < ApplicationController
   # PATCH/PUT /flights/1
   # PATCH/PUT /flights/1.json
   def update
+    @flight.seats = Airplane.seat_count(@flight.airplane)
     respond_to do |format|
       if @flight.update(flight_params)
         format.html { redirect_to @flight, notice: 'Flight was successfully updated.' }
@@ -82,6 +84,6 @@ class FlightsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def flight_params
-      params.require(:flight).permit(:airplane_id, :origin, :destination, :date, :flight_number)
+      params.require(:flight).permit(:airplane_id, :origin, :destination, :date, :flight_number, :seats)
     end
 end

@@ -3,21 +3,24 @@
 
 </div>
 
+<% if @current_user.present? %>
+  <%= javascript_tag do %>
+    window.currentUserName = "<%= @current_user.name %>";
+    window.currentUserID = "<%= @current_user.id %>";
+  <% end %>
+<% end %>
 
 <script type="text/x-template" id="appView">
   <div class="search">
     <h1>Search</h1>
-
     <div id="searchInput"></div>
   </div>
-
-<table id="searchResults">
-</table>
-
+  <table id="searchResults">
+  </table>
 </script>
 
-<script type="text/x-template" id="searchInputView">
 
+<script type="text/x-template" id="searchInputView">
   <form>
     <select name="" id="searchOrigin">
       <% Flight.pluck('origin').uniq.each do |flight| %>
@@ -33,13 +36,19 @@
   </form>
 </script>
 
+
 <script id="flightView" type="text/x-template">
+  <div class="selectSeat">
+    <button class="seatButton">Select Seat</button>
+  </div>
+
   <div class="seatingMap"></div>
 </script>
 
+
 <script id="searchResult" type="text/x-template">
-  <tr>
-    <td>{{= origin }}</td>
+  <tr class="searchResultTR">
+    <td>{{= origin }} > </td>
     <td>{{= destination }}</td>
     <td>{{= date }}</td>
     <td class="flight_number" data-id="{{= id }}">{{= flight_number }}</td>

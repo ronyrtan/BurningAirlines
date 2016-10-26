@@ -10,6 +10,7 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  flight_number :integer
+#  seats         :integer
 #
 
 class Flight < ActiveRecord::Base
