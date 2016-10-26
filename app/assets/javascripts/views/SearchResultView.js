@@ -3,6 +3,12 @@ var app = app || {};
 app.SearchResultView = Backbone.View.extend({
   tagName: 'table',
   render: function() {
+    // <th>Airplane</th>
+    // <th>Flight Number</th>
+    // <th>Origin</th>
+    // <th>Destination</th>
+    // <th>Date</th>
+    // <th>Seats</th>
     if(this.collection !== undefined) {
       console.log(this.collection.length);
       _(this.collection).each(function(result){
@@ -16,7 +22,9 @@ app.SearchResultView = Backbone.View.extend({
         //   $td.text(result.attributes[key]);
         //   $td.appendTo($tr);
         // }
-
+        var plane = app.airplanes.findWhere({id: result.get('airplane_id')});
+        console.log(plane.get('name'));
+        console.log(plane.seat_total());
 
         var $td_origin = $('<td>');
         $td_origin.text(result.get('origin'));
@@ -31,10 +39,10 @@ app.SearchResultView = Backbone.View.extend({
         $td_flight_number.text(result.get('flight_number'));
 
         var $td_seats = $('<td>');
-        $td_seats.text(result.get('seats'));
+        $td_seats.text(plane.seat_total());
 
         var $td_airplane_id = $('<td>');
-        $td_airplane_id.text(result.get('airplane_id'));
+        $td_airplane_id.text(plane.get('name'));
 
 
         $td_origin.appendTo($tr);

@@ -14,6 +14,8 @@ app.AppRouter = Backbone.Router.extend({
     console.log('index reached');
 
     app.flights = new app.Flights();
+    app.airplanes = new app.Airplanes()
+    app.airplanes.fetch().done();
     app.flights.fetch().done( function() {
       app.flights.each(function(flight) {
         var searchResultView = new app.SearchResultView({model: flight});
