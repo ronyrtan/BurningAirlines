@@ -8,7 +8,7 @@
 nav {
   height: 50px;
   margin: 0 auto;
-  background-color: lightgray;
+  background-color: #e0001b;
 }
 
 .navbar {
@@ -22,6 +22,7 @@ nav {
   text-decoration: none;
   color: white;
   font-size: 18px;
+  margin-right: 8px;
 }
 
 .navleft {
@@ -38,6 +39,8 @@ nav {
   width: 960px;
   text-align: left;
   margin: 0 auto;
+  /*background-color: lightgray;*/
+  padding-top: 10px;
 }
 
 div .seat {
@@ -54,4 +57,28 @@ div .seat {
 
 .seatingMap {
   max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.search {
+  border: 1px solid #e0001b;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.search_button {
+  border: 1px solid #e0001b;
+  height: 30px;
+  width: 70px;
+  border-radius: 3px;
+  font-size: 16px;
+  background-color: white;
+  color: #e0001b;
+  transition: all .3s ease
+}
+
+.search_button:hover {
+  background-color: #e0001b;
+  color: white;
 }

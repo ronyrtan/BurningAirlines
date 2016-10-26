@@ -5,10 +5,11 @@
 
 
 <script type="text/x-template" id="appView">
-  <h1>Search</h1>
+  <div class="search">
+    <h1>Search</h1>
 
-  <div id="searchInput"></div>
-
+    <div id="searchInput"></div>
+  </div>
 
 <table id="searchResults">
 </table>
@@ -16,11 +17,20 @@
 </script>
 
 <script type="text/x-template" id="searchInputView">
-  <%= form_tag(search_results_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search_origin, params[:search_origin], placeholder: "Search Origin" %>
-      <%= text_field_tag :search_destination, params[:search_destination], placeholder: "Search Destination" %>
-      <%= submit_tag "Search", :name => nil %>
-  <% end %>
+
+  <form>
+    <select name="" id="searchOrigin">
+      <% Flight.pluck('origin').uniq.each do |flight| %>
+      <option value="<%= :search_origin %>"><%= flight %></option>
+      <% end %>
+    </select>
+    <select name="" id="searchDestination">
+      <% Flight.pluck('destination').uniq.each do |flight| %>
+      <option value="<%= :search_destination %>"><%= flight %></option>
+      <% end %>
+    </select>
+    <button class="search_flight">Search</button>
+  </form>
 </script>
 
 <script id="flightView" type="text/x-template">

@@ -6,7 +6,11 @@ _.templateSettings = {
 
 var app = app || {};
 
+app.flights = new app.Flights();
+
 $(document).ready(function() {
   app.router = new app.AppRouter();
-  Backbone.history.start();
+  // app.flights.fetch().done(function () {
+    Backbone.history.start();
+  // });
 });

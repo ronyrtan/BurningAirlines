@@ -3,7 +3,8 @@ var app = app || {};
 app.SearchInputView = Backbone.View.extend({
   el: '#searchInput',
   events: {
-    'submit': 'createSearch'
+    'submit': 'createSearch',
+    'click .search_flight': 'findSearch'
     // 'keypress textarea': 'checkForEnter'
   },
   createSearch: function(e){
@@ -16,7 +17,7 @@ app.SearchInputView = Backbone.View.extend({
         destination: userSearchDestination
       });
 
-    console.log('sr', searchResults);
+    // console.log('sr', searchResults);
 
 
     app.matchedFlights = new app.SearchResultView({collection: searchResults});
@@ -27,6 +28,30 @@ app.SearchInputView = Backbone.View.extend({
 
     // searchResults.render()
   },
+
+  findSearch: function() {
+    var userSearchOrigin = this.$el.find('#searchOrigin option ').first().text();
+    console.log(userSearchOrigin);
+    var userSearchDestination = this.$el.find('#searchDestination option ').first().text();
+    console.log(userSearchDestination);
+
+
+    var searchResults = app.flights.where({
+      origin: userSearchOrigin,
+      destination: userSearchDestination
+    });
+    // console.log('sr', searchResults);
+
+
+    app.matchedFlights = new app.SearchResultView({collection: searchResults});
+
+    // console.log(app.matchedFlights);
+
+    app.matchedFlights.render();
+
+    // searchResults.render()
+  },
+
   // checkForEnter: function(event) {
   //   if (event.which === 13) {
   //     this.createSearch();

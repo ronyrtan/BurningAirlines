@@ -14,10 +14,12 @@ app.AppRouter = Backbone.Router.extend({
     appView.render();
     console.log('index reached');
 
+    app.users = new app.Users();
     app.flights = new app.Flights();
     app.airplanes = new app.Airplanes()
     app.airplanes.fetch().done();
     app.flights.fetch().done();
+    app.users.fetch().done();
   },
   show: function (id) {
     var flight = app.flights.get(id);
