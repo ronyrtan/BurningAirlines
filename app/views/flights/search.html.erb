@@ -1,17 +1,18 @@
 
 <div id="main">
 
-
 </div>
+
 
 <script type="text/x-template" id="appView">
   <h1>Search</h1>
 
   <div id="searchInput"></div>
 
-  <table id="searchResults">
-    
-  </table>
+
+<table id="searchResults">
+</table>
+
 </script>
 
 <script type="text/x-template" id="searchInputView">
@@ -20,4 +21,24 @@
       <%= text_field_tag :search_destination, params[:search_destination], placeholder: "Search Destination" %>
       <%= submit_tag "Search", :name => nil %>
   <% end %>
+</script>
+
+<script id="flightView" type="text/x-template">
+<tr>
+    <td>{{= origin }}</td>
+    <td>{{= destination }}</td>
+    <td>{{= date }}</td>
+    <td class="flight_number" data-id="{{= id }}">{{= flight_number }}</td>
+    <td>{{= airplane_id }}</td>
+  </tr>
+</script>
+
+<script id="searchResult" type="text/x-template">
+  <tr>
+    <td>{{= origin }}</td>
+    <td>{{= destination }}</td>
+    <td>{{= date }}</td>
+    <td class="flight_number" data-id="{{= id }}">{{= flight_number }}</td>
+    <td>{{= airplane_id }}</td>
+  </tr>
 </script>

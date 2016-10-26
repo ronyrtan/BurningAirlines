@@ -6,7 +6,8 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   routes: {
-    '': 'index'
+    '': 'index',
+    'flights/:id': 'show'
   },
   index: function() {
     var appView = new app.AppView();
@@ -16,12 +17,12 @@ app.AppRouter = Backbone.Router.extend({
     app.flights = new app.Flights();
     app.airplanes = new app.Airplanes()
     app.airplanes.fetch().done();
-    app.flights.fetch().done( function() {
-      app.flights.each(function(flight) {
-        var searchResultView = new app.SearchResultView({model: flight});
-        searchResultView.render();
-      })
-    });
+    app.flights.fetch().done();
+  },
+  show: function (id) {
+    var flight = app.flights.get(id);
+    var flightView = new app.FlightView({model: flight});
+    flightView.render();
   }
 
 });

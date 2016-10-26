@@ -11,17 +11,19 @@ app.SearchInputView = Backbone.View.extend({
     var userSearchOrigin = this.$el.find('#search_origin ').val();
     var userSearchDestination = this.$el.find('#search_destination').val();
 
-    //var flight = new app.Flight({origin: userSearchOrigin}, {destination: userSearchDestination});
-    //console.log(userSearchOrigin,userSearchDestination);
     var searchResults = app.flights.where({
         origin: userSearchOrigin,
         destination: userSearchDestination
       });
 
-    // console.log(searchResults.length);
+    console.log('sr', searchResults);
 
-    var matchedFlights = new app.SearchResultView({collection: searchResults});
-    matchedFlights.render();
+
+    app.matchedFlights = new app.SearchResultView({collection: searchResults});
+
+    // console.log(app.matchedFlights);
+
+    app.matchedFlights.render();
 
     // searchResults.render()
   },
