@@ -14,23 +14,23 @@
   <div class="field">
     <%= f.label :airplane_id %><br>
     <%= f.select :airplane_id, Airplane.pluck(:name, :id),
-    {:prompt => 'Select Airplane'} %>
+    {:prompt => 'Select Airplane'}, :class => 'signUpFormSelect' %>
   </div>
   <div class="field">
     <%= f.label :flight_number %><br>
-    <%= f.number_field :flight_number %>
+    <%= f.number_field :flight_number, :class => 'signUpForm' %>
   </div>
   <div class="field">
     <%= f.label :origin %><br>
-    <%= f.text_field :origin %>
+    <%= f.text_field :origin, :class => 'signUpForm' %>
   </div>
   <div class="field">
     <%= f.label :destination %><br>
-    <%= f.text_field :destination %>
+    <%= f.text_field :destination, :class => 'signUpForm' %>
   </div>
   <div class="field">
     <%= f.label :date %><br>
-    <%= f.date_select :date %>
+    <%= f.date_select :date, :class => 'signUpForm' %>
   </div>
   <div class="actions">
     <%= f.submit %>

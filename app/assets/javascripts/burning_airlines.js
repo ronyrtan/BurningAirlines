@@ -12,5 +12,11 @@ $(document).ready(function() {
   app.router = new app.AppRouter();
   // app.flights.fetch().done(function () {
     Backbone.history.start();
+
+    setInterval(function(){
+      app.reservations.fetch().done(function(){
+        console.log("Coming Soon");
+      });
+    }, 2000)
   // });
 });

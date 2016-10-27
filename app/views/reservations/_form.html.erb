@@ -21,6 +21,10 @@
     <%= f.select :user_id, User.pluck(:name, :id),
     {:prompt => 'Select Flight'} %>
   </div>
+  <div class="field">
+    <%= f.label :seat %><br>
+    <%= f.text_field :seat %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

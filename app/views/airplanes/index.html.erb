@@ -30,5 +30,5 @@
 
 <br>
 <% if @current_user.present? && @current_user.admin? %>
-  <%= link_to 'New Airplane', new_airplane_path %>
+  <%= link_to 'New Airplane', new_airplane_path, :class => 'scaffButton airlineShowButton' %>
 <% end %>

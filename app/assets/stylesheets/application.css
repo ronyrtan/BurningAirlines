@@ -136,7 +136,8 @@ nav {
 
 .search_flight:hover {
   color: white;
-  background: red;s
+  background: red;
+  cursor: pointer;
 }
 
 
@@ -221,6 +222,7 @@ div .clickedSeat {
 .seatButton:hover {
   background-color: #e0001b;
   color: white;
+  cursor: pointer;
 }
 
 
@@ -233,6 +235,14 @@ div .clickedSeat {
   font-size: 15px;
   padding: 5px 10px;
   margin: 10px 0;
+}
+
+.signUpFormSelect {
+  border: 1px solid red;
+  background-color: white;
+  height: 35px;
+  border-radius: 3px;
+  width: 184px;
 }
 
 .signInFormButton, .signUpFormButton {
@@ -251,4 +261,36 @@ div .clickedSeat {
 .signInFormButton:hover, .signUpFormButton:hover{
   color: white;
   background: #e0001b;
+}
+
+
+
+/*/// USER PROFILE ///*/
+
+.userProfile p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.scaffButton {
+  margin-top: 10px;
+  text-decoration: none;
+  border: 1px solid #e0001b;
+  border-radius: 3px;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  width: 60px;
+  text-align: center;
+  color: #e0001b;
+  transition: all .3s ease;
+}
+
+.scaffButton:hover {
+  background-color: #e0001b;
+  color: white;
+}
+
+.airflightShowButton {
+  width: 120px;
 }
