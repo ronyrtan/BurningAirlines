@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :check_for_user, :only => [:edit, :update]
-  before_action :check_for_admin, :only => [:index]
+  # before_action :check_for_user, :only => [:edit, :update]
+  # before_action :check_for_admin, :only => [:index]
 
   # GET /users
   # GET /users.json

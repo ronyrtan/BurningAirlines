@@ -109,15 +109,17 @@ app.FlightView = Backbone.View.extend({
         if(reservation === undefined || reservation.get('flight_id') === flight.get('id')) {
           if(reservation === undefined) {
             $seat.text('avail');
+            $('.seatingMap').append($seat);
           }
           else {
             var user = app.users.findWhere({'id': reservation.get('user_id')})
             console.log("This is the user", user.get('name'));
             $seat.text(user.get('name'));
             $seat.addClass('clickedSeat');
+            $('.seatingMap').append($seat);
             userCount++;
           }
-          $('.seatingMap').append($seat);
+
         }
       }
     }
