@@ -37,8 +37,8 @@ app.AppRouter = Backbone.Router.extend({
     // app.reservations.fetch().done();
 
     var flight = app.flights.get(id);
-    var flightView = new app.FlightView({model: flight});
-    flightView.render();
+    app.flightView = new app.FlightView({model: flight});
+    app.flightView.render();
   }
 
 });

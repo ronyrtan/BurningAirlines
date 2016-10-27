@@ -3,7 +3,6 @@ var app = app || {};
 app.SearchInputView = Backbone.View.extend({
   el: '#searchInput',
   events: {
-    'submit': 'createSearch',
     'click .search_flight': 'findSearch'
     // 'keypress textarea': 'checkForEnter'
   },

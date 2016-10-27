@@ -8,7 +8,7 @@ app.FlightView = Backbone.View.extend({
     'click .seatButton': 'reserveUserSeat'
   },
   chosenSeat: function(e) {
-
+    console.log(userCount);
     var seats = $('.seat').length;
     var seatCount = 0;
     var x = '';
@@ -109,7 +109,6 @@ app.FlightView = Backbone.View.extend({
         if(reservation === undefined || reservation.get('flight_id') === flight.get('id')) {
           if(reservation === undefined) {
             $seat.text('avail');
-            console.log("This is mumble jumble");
           }
           else {
             var user = app.users.findWhere({'id': reservation.get('user_id')})

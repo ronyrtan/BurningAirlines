@@ -15,7 +15,18 @@ $(document).ready(function() {
 
     setInterval(function(){
       app.reservations.fetch().done(function(){
-        console.log("Coming Soon");
+        app.flightView = new app.FlightView({model: flight});
+
+
+
+        var flight = {};
+        _(app.reservations.models).each(function(r){
+          console.log('Reservations flights',r.get('flight_id'));
+          // flight = app.flights.findWhere({'id': r.get('flight_id')});
+        });
+        // app.flightView = new app.FlightView({model: flight});
+        // app.flightView.render();
+
       });
     }, 2000)
   // });
