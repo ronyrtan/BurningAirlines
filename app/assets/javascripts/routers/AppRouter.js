@@ -14,14 +14,14 @@ app.AppRouter = Backbone.Router.extend({
     appView.render();
     console.log('index reached');
 
-    app.reservations = new app.Reservations();
-    app.users = new app.Users();
-    app.flights = new app.Flights();
-    app.airplanes = new app.Airplanes()
-    app.airplanes.fetch().done();
-    app.flights.fetch().done();
-    app.users.fetch().done();
-    app.reservations.fetch().done();
+    // app.reservations = new app.Reservations();
+    // app.users = new app.Users();
+    // app.flights = new app.Flights();
+    // app.airplanes = new app.Airplanes();
+    // app.airplanes.fetch().done();
+    // app.flights.fetch().done();
+    // app.users.fetch().done();
+    // app.reservations.fetch().done();
   },
   show: function (id) {
 
@@ -35,10 +35,10 @@ app.AppRouter = Backbone.Router.extend({
     // app.flights.fetch().done();
     // app.users.fetch().done();
     // app.reservations.fetch().done();
+      var flight = app.flights.get(id);
+      app.flightView = new app.FlightView({model: flight});
+      app.flightView.render();
 
-    var flight = app.flights.get(id);
-    app.flightView = new app.FlightView({model: flight});
-    app.flightView.render();
   }
 
 });

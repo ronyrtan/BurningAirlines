@@ -15,6 +15,11 @@
 
   <p>
     <strong>Reservations: TODO:</strong>
+    <ul>
+      <% @user.reservations.each do |r| %>
+        <li><%= link_to r.flight.airplane.name, reservations_path(r) %></li>
+      <% end %>
+    </ul>
   </p>
 </div>
 

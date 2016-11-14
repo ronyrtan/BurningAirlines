@@ -6,28 +6,31 @@ _.templateSettings = {
 
 var app = app || {};
 
-app.flights = new app.Flights();
+// app.flights = new app.Flights();
+// app.reservations = new app.Reservations();
 
 $(document).ready(function() {
-  app.router = new app.AppRouter();
-  // app.flights.fetch().done(function () {
-    Backbone.history.start();
-
-    setInterval(function(){
-      app.reservations.fetch().done(function(){
-        app.flightView = new app.FlightView({model: flight});
-
-
-
-        var flight = {};
-        _(app.reservations.models).each(function(r){
-          console.log('Reservations flights',r.get('flight_id'));
-          // flight = app.flights.findWhere({'id': r.get('flight_id')});
+    app.reservations = new app.Reservations();
+    app.users = new app.Users();
+    app.flights = new app.Flights();
+    app.airplanes = new app.Airplanes();
+    var airplanePromise = app.airplanes.fetch();
+    var flightsPromise = app.flights.fetch();
+    var usersPromise = app.users.fetch();
+    var reservationsPromise = app.reservations.fetch();
+    $.when(airplanePromise, flightsPromise, usersPromise, reservationsPromise).then(function () {
+      app.router = new app.AppRouter();
+      Backbone.history.start();
+      setInterval(function(){
+        app.reservations.fetch().done(function(){
+          _(app.reservations.models).each(function(r){
+            console.log('Reservations flights',r.get('flight_id'));
+          });
         });
-        // app.flightView = new app.FlightView({model: flight});
-        // app.flightView.render();
+      }, 2000);
 
-      });
-    }, 2000)
-  // });
+    });
+
+
+
 });

@@ -6,7 +6,7 @@
 <% if @current_user.present? %>
   <%= javascript_tag do %>
     window.currentUserName = "<%= @current_user.name %>";
-    window.currentUserID = "<%= @current_user.id %>";
+    window.currentUserID = <%= @current_user.id %>;
   <% end %>
 <% end %>
 
